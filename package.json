@@ -1,0 +1,15 @@
+{
+  "name": "vocabulaire_japonais",
+  "version": "1.0.0",
+  "description": "App pour reviser(ou apprendre) le vocabulaire japonais",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Youcef Bouterfass",
+  "license": "ISC",
+  "dependencies": {
+    "got": "^11.0.2",
+    "jsdom": "^16.4.0"
+  }
+}
