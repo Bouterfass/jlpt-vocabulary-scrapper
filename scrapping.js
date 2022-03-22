@@ -8,6 +8,7 @@ const fs = require('fs');
 let items = {
     words: [],
     id: '',
+    level: 0,
     word: '',
     rom: '', //romanisation
     hiragana: '',
@@ -50,6 +51,7 @@ let items = {
     addItem: () => {
         items.words.push({
             id: items.id,
+            level: items.level,
             word: items.word,
             rom: items.rom,
             hiragana: items.hiragana,
@@ -59,6 +61,7 @@ let items = {
     },
     reset: () => {
         items.id = '';
+        items.level = 0;
         items.word = '';
         items.rom = ''; //romanisation
         items.hiragana = '';
@@ -110,12 +113,14 @@ const getKanji = level => {
             colList.forEach(el => {
                 if (count == 5) {
                     count = 0;
+                    items.level = level;
                     items.addItem();
                     items.reset();
                 }
                 fillWord(count, items, el.textContent);
                 count++;
             })
+            items.level = level;
             items.addItem();
         }
         jsonData = JSON.stringify(items.words);
@@ -129,5 +134,5 @@ const getKanji = level => {
     })();
 }
 
-getKanji(2);
+getKanji(5);
 
